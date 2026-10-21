@@ -1,0 +1,72 @@
+{
+  "info": {
+    "name": "TaskFlow API",
+    "description": "Module 3 assignment - one request per endpoint. Run top to bottom.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ],
+  "item": [
+    {
+      "name": "1. Create task (201)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/tasks",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Finish Module 3 assignment\",\n  \"description\": \"Build the TaskFlow API and push to GitHub\",\n  \"completed\": false\n}"
+        }
+      }
+    },
+    {
+      "name": "2. Create another task (201)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/tasks",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Test every endpoint in Postman\",\n  \"description\": \"Create, get, update, delete, complete, summary\",\n  \"completed\": false\n}"
+        }
+      }
+    },
+    {
+      "name": "3. Get all tasks (200)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/tasks" }
+    },
+    {
+      "name": "4. Get task by id (200)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/tasks/1" }
+    },
+    {
+      "name": "5. Update task (200)",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/tasks/1",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Finish Module 3 assignment (updated)\",\n  \"description\": \"Build, test and push to GitHub\",\n  \"completed\": false\n}"
+        }
+      }
+    },
+    {
+      "name": "6. Mark task as complete (200)",
+      "request": { "method": "PUT", "url": "{{baseUrl}}/api/tasks/1/complete" }
+    },
+    {
+      "name": "7. Summary - Task 6 (200)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/tasks/summary" }
+    },
+    {
+      "name": "8. Delete task (200)",
+      "request": { "method": "DELETE", "url": "{{baseUrl}}/api/tasks/2" }
+    },
+    {
+      "name": "9. Get missing task (404)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/tasks/999" }
+    }
+  ]
+}
