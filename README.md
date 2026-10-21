@@ -2,6 +2,17 @@
 
 A small task-management backend built with Spring Boot for the NTU AI Engineering Module 3 assignment.
 
+## What this is, in plain English
+
+TaskFlow is the "back end" of a to-do list: a program that runs on a server and
+keeps a list of tasks. It has no screens of its own. Other programs (Postman,
+a web page, a phone app) talk to it over the web to add a task, read the list,
+change a task, delete it, or mark it as done. There is one extra feature: it can
+send the whole list to an AI and get back a two or three sentence summary of
+what is finished and what is still pending.
+
+You can try it live at <https://artificialintelligence.sg/taskflow/>.
+
 ## Stack
 
 - Java 21, Maven, Spring Boot
