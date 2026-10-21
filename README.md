@@ -62,6 +62,18 @@ The profile file `src/main/resources/application-openrouter.properties` sets the
 OpenRouter address and the `openrouter/free` model. Without the profile the app
 talks to OpenAI directly, as the assignment describes.
 
+### Demo profile and Docker (public showcase, not part of the assignment)
+
+The API runs live at <https://artificialintelligence.sg/taskflow/>. For that,
+`SPRING_PROFILES_ACTIVE=openrouter,demo` adds two guard rails: a 30-task cap
+(`DemoLimitFilter`) and an hourly reset with sample tasks (`DemoResetService`).
+The `Dockerfile` builds the container used there:
+
+```bash
+docker build -t taskflow-api .
+docker run -p 8080:8080 -e OPENAI_API_KEY -e SPRING_PROFILES_ACTIVE=openrouter,demo taskflow-api
+```
+
 ## Endpoints
 
 | Method | Path                       | What it does            | Status |
