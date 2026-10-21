@@ -28,10 +28,10 @@ public class DemoResetService {
         for (Task task : taskService.findAllTasks()) {
             taskService.deleteTask(task.getId());
         }
-        taskService.createTask(new Task(null, "Submit Module 3 assignment on NTU Learn",
-                "Push the TaskFlow API to GitHub and paste the link", true));
-        taskService.createTask(new Task(null, "Test every endpoint in Postman",
-                "Create, get, update, delete, complete, summary", false));
+        taskService.createTask(new Task(null, "Send the revised quotation to the client",
+                "Version 3, with the new delivery dates", true));
+        taskService.createTask(new Task(null, "Renew the office internet plan",
+                "Contract ends next month, compare two providers", false));
         taskService.createTask(new Task(null, "Book a kopi meeting at Lau Pa Sat",
                 "Friday 12.30pm, bring the laptop", false));
     }
