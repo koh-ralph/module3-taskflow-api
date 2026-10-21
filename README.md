@@ -46,6 +46,22 @@ mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=8081
 If you only want to test Tasks 1 to 5, set `OPENAI_API_KEY` to any dummy value
 such as `x`; the app still starts and only `/api/tasks/summary` will fail.
 
+### Using OpenRouter instead of OpenAI (optional)
+
+OpenRouter speaks the same API as OpenAI and offers free models, so the summary
+endpoint can run at no cost. A Spring profile switches the client over without
+any code change:
+
+```bash
+export OPENAI_API_KEY=sk-or-v1-...          # your OpenRouter key
+export SPRING_PROFILES_ACTIVE=openrouter
+mvn spring-boot:run
+```
+
+The profile file `src/main/resources/application-openrouter.properties` sets the
+OpenRouter address and the `openrouter/free` model. Without the profile the app
+talks to OpenAI directly, as the assignment describes.
+
 ## Endpoints
 
 | Method | Path                       | What it does            | Status |
